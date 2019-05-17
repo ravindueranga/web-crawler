@@ -19,10 +19,6 @@ public class ReadS3Bucket {
 
         ArrayList<String> nameList = readFileToList();
 
-//        BasicAWSCredentials cred = new BasicAWSCredentials("commoncrawl","crawl-data");
-
-//        AmazonS3 s3=  AmazonS3ClientBuilder.standard().withCredentials(new AWSStaticCredentialsProvider(cred)).build();
-
         AmazonS3 s3= new AmazonS3Client();
         ObjectListing listing= new ObjectListing();
 
@@ -57,14 +53,8 @@ public class ReadS3Bucket {
 
         ArrayList<String> nameList = new ArrayList<>();
         try{
-//            ClassLoader classLoader = getClass().getClassLoader();
-//            File file = new File(classLoader.getResource("warcnamelist.xml").getFile());
-
             InputStream fstream = getClass().getResourceAsStream("/warcnamelist.txt");
 
-//            FileInputStream fstream = new FileInputStream("../../warcnamelist.txt");
-            // Get the object of DataInputStream
-//            DataInputStream in = new DataInputStream(fstream);
             BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
             String strLine;
 
@@ -74,7 +64,7 @@ public class ReadS3Bucket {
             }
             //Close the input stream
             fstream.close();
-        }catch (Exception e){//Catch exception if any
+        }catch (Exception e){
             System.err.println("Error: " + e.getMessage());
         }
 
