@@ -70,14 +70,10 @@ public class ProcessWarc implements Callable<Keywords> {
             if (simplyfiedUrl==null){
                 return null;
             }
-//
+
             if(isUrlAlreadyIndexed(simplyfiedUrl, getUrl) || isUrlAlreadyIndexedtoList(simplyfiedUrl, urlList)){
                 return null;
             }
-
-//                urlList.add(simplyfiedUrl);
-
-//                Metadata metadata = pharseHtml(record.getPayload().getInputStreamComplete());
 
             String keywords = null;
             String title = null;
@@ -181,19 +177,6 @@ public class ProcessWarc implements Callable<Keywords> {
         parser.parse(inputStream, teeHandler, metadata, parseContext);
 
         return metadata;
-
-//        if (metadata.get("KEYWORDS") != null) {
-//            System.out.println(metadata.get("KEYWORDS"));
-//        } else if (metadata.get("keywords") != null) {
-//            System.out.println(metadata.get("keywords"));
-//        } else {
-//            for (String metaName : metadata.names()) {
-//
-//                System.out.println(metaName + " : " + metadata.get(metaName));
-//            }
-//
-//        }
-
     }
 
 
