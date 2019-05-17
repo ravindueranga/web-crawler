@@ -51,21 +51,6 @@ public class ExtractWarc {
 
             while ((record = reader.getNextRecord()) != null) {
 
-//                ExecutorService executor = Executors.newFixedThreadPool(5);
-//
-//                Future<Keywords> task = null;
-//
-//                for (int i = 0; i < 5; i++) {
-//
-//                  task = executor.submit(new ProcessWarc(reader.getNextRecord(),numRecords, connection,indexKeywords,getUrl));
-//
-//                }
-//
-//                Keywords keywords = task.get();
-//
-//                System.out.println("****");
-
-
                 if ((++numRecords) % 100000 == 0) {
 
                     System.out.println(numRecords + " records reached");
@@ -215,19 +200,6 @@ public class ExtractWarc {
         parser.parse(inputStream, teeHandler, metadata, parseContext);
 
         return metadata;
-
-//        if (metadata.get("KEYWORDS") != null) {
-//            System.out.println(metadata.get("KEYWORDS"));
-//        } else if (metadata.get("keywords") != null) {
-//            System.out.println(metadata.get("keywords"));
-//        } else {
-//            for (String metaName : metadata.names()) {
-//
-//                System.out.println(metaName + " : " + metadata.get(metaName));
-//            }
-//
-//        }
-
     }
 
     private static Connection getConnection(){
@@ -250,7 +222,6 @@ public class ExtractWarc {
 
 
         return con;
-
     }
 
 }
